@@ -3,10 +3,14 @@ E:\2º DAM\AED\vsAdo_CristoChacon\bin\Debug\vsAdo_CristoChacon.exe
 E:\2º DAM\AED\vsAdo_CristoChacon\bin\Debug\vsAdo_CristoChacon.pdb
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.csproj.AssemblyReference.cache
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.csproj.SuggestedBindingRedirects.cache
-E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Form1.resources
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Manipulate.resources
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Properties.Resources.resources
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.csproj.GenerateResource.cache
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.csproj.CoreCompileInputs.cache
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.exe
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.pdb
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Combo.resources
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.ComboHab.resources
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Main.resources
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Form1.resources
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Borrar.resources

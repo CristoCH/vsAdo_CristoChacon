@@ -1,0 +1,220 @@
+--Cristo Chacón
+
+CREATE DATABASE bdHoteles;
+go
+use bdHoteles
+go
+
+CREATE TABLE hoteles(
+	codHotel char(6) PRIMARY KEY,
+    nomHotel varchar(60)
+);
+
+CREATE TABLE habitaciones(
+	codHotel char(6) constraint fk_hotel FOREIGN KEY (codHotel) REFERENCES hoteles(codHotel),
+	numHabitacion char(4) constraint pkhabitacion PRIMARY KEY,
+    capacidad smallint constraint dfcapacidad DEFAULT 2,
+    preciodia integer,
+    activa tinyint
+);
+
+CREATE TABLE regimenes(
+codregimen integer identity(1,1) constraint pkregimen PRIMARY KEY,
+    codHotel char(6) constraint fk_hotel1 FOREIGN KEY (codHotel) REFERENCES hoteles(codHotel),
+    tipo char(2) constraint cktipo CHECK (tipo in('DY','MD','PC','TD')),
+    precio integer
+);
+
+
+CREATE TABLE clientes(
+	coddnionie char(9) constraint pkdni PRIMARY KEY,
+    nombre varchar(50),
+    nacionalidad varchar(40)
+);
+
+CREATE TABLE estancias(
+	codestancia integer identity(1,1) constraint pkestacia PRIMARY KEY,
+    coddnionie char(9),
+    codHotel char(6) constraint fk_hotel2 FOREIGN KEY (codHotel) REFERENCES hoteles(codHotel),
+    numHabitacion char(4) constraint fk_habitacion FOREIGN KEY (numHabitacion) REFERENCES habitaciones(numHabitacion),
+    fechaInicio date,
+    fechaFin date,
+	codregimen integer constraint fk_regimen FOREIGN KEY (codregimen) REFERENCES regimenes(codregimen),
+    ocupantes tinyint constraint dfocupantes DEFAULT 2,
+    precioestancia integer,
+	pagado money constraint dfpagado DEFAULT 1
+);
+
+insert into hoteles values(000001,'Sol');
+insert into hoteles values(000002,'Princess');
+insert into hoteles values(000003,'Centro Cancajos');
+insert into hoteles values(000004,'Hacienda San Jorge');
+insert into hoteles values(000005,'Parador');
+
+insert into habitaciones values(000001,1001,1,50,1);
+insert into habitaciones values(000001,1002,1,50,1);
+insert into habitaciones values(000001,1003,1,50,1);
+insert into habitaciones values(000001,1004,1,50,1);
+insert into habitaciones values(000002,2001,2,70,default);
+insert into habitaciones values(000002,2002,2,70,default);
+insert into habitaciones values(000002,2003,2,70,default);
+insert into habitaciones values(000002,2004,2,70,default);
+
+insert into habitaciones values(000003,3001,2,120,1);
+insert into habitaciones values(000003,3002,2,120,1);
+insert into habitaciones values(000003,3003,2,120,1);
+insert into habitaciones values(000003,3004,2,120,1);
+insert into habitaciones values(000004,4001,1,50,default);
+insert into habitaciones values(000004,4002,1,50,default);
+insert into habitaciones values(000004,4003,1,50,default);
+insert into habitaciones values(000004,4004,1,50,default);
+insert into habitaciones values(000005,5001,2,123,1);
+insert into habitaciones values(000005,5002,2,123,1);
+insert into habitaciones values(000005,5003,2,123,1);
+insert into habitaciones values(000005,5004,2,123,1);
+insert into regimenes values(000001,'DY',190);
+insert into regimenes values(000002,'MD',300);
+insert into regimenes values(000003,'DY',250);
+insert into regimenes values(000004,'PC',700);
+insert into regimenes values(000005,'TD',60);
+
+insert into clientes values('41111111A','Pedro','España');
+insert into clientes values('42222222B','María','Venezuela');
+insert into clientes values('43333333C','Gunther','Alemania');
+insert into clientes values('44444444D','Sara','España');
+insert into clientes values('45555555E','Ferdinand','Inglaterra');
+
+set identity_insert estancias on
+insert into estancias (codestancia, coddnionie, codHotel, numHabitacion, fechaInicio, fechaFin, codregimen, ocupantes, precioestancia, pagado) 
+values(11,'41111111A',1,1001,'2015-05-09','2015-08-01',1,1,50,0);
+insert into estancias (codestancia, coddnionie, codHotel, numHabitacion, fechaInicio, fechaFin, codregimen, ocupantes, precioestancia, pagado) 
+values(22,'42222222B',2,2002,'2019-08-05','2019-09-01',2,4,100,default);
+insert into estancias (codestancia, coddnionie, codHotel, numHabitacion, fechaInicio, fechaFin, codregimen, ocupantes, precioestancia, pagado)
+values(33,'43333333C',3,3003,'2016-06-05','2017-06-20',3,2,99,0);
+insert into estancias (codestancia, coddnionie, codHotel, numHabitacion, fechaInicio, fechaFin, codregimen, ocupantes, precioestancia, pagado)
+values(44,'44444444D',4,4004,'2018-08-02','2018-08-25',4,1,80,default);
+insert into estancias (codestancia, coddnionie, codHotel, numHabitacion, fechaInicio, fechaFin, codregimen, ocupantes, precioestancia, pagado)
+values(55,'45555555E',5,5001,'2020-05-09','2021-06-12',5,2,60,0);
+
+
+
+
+/*Crear un procedimiento almacenado que liste todas las habitaciones de cierto hotel pasando por
+parámetro de entrada el nombre del hotel, ordenados por preciodia y capacidad en orden ascendente.
+Los datos a visualizar serán: número de habitacion, capacidad, precio y activo*/
+
+GO
+create procedure sp_listaHabitac
+@nomHotel varchar(60)
+as
+	select numHabitacion,capacidad,preciodia,activa from habitaciones 
+    inner join hoteles on hoteles.codHotel=habitaciones.codHotel
+    WHERE nomHotel=@nomHotel
+    order by preciodia, capacidad ASC;
+GO
+
+/*Crear un procedimiento almacenado que inserte una habitacion, de modo que se le pase como
+parámetros todos los datos.
+Comprobar que el código de hotel pasado exista en la tabla hoteles. En caso de que no exista el hotel
+que no se inserte. Devolver en un parámetro de salida: 0 si el hotel no existe y 1 si el hotel existe.
+Devolver en otro parámetro de salida: 0 si la habitacion no se insertó y 1 si la inserción fue correcta.*/
+
+GO
+create procedure sp_inseHabitac
+@codHotel char(6),@numHabitacion char(4), @capacidad smallint,
+@precio integer, @activa tinyint, @salida1 int output, @salida2 int output
+as
+if((select count(*) from hoteles where codHotel=@codHotel) > 0)
+BEGIN
+		insert into habitaciones values(@codHotel, @numHabitacion, @capacidad, @precio, @activa);
+		set @salida1=1;
+		set @salida2=1;
+END
+ELSE
+BEGIN
+		set @salida1=0;
+		set @salida2=0;
+END
+GO
+
+/*Crear un procedimiento almacenado que indicándole un nombre de hotel y un preciodia, devuelva
+dos parámetros. En un parámetro de salida la cantidad de habitaciones total que tiene ese hotel. En
+otro parámetro de salida la cantidad de habitaciones por debajo del preciodia y sean activas*/
+
+create procedure sp_indicHotel
+@nombreHotel varchar(60), @precio int,
+@salidad1 int output, @salida2 int output
+as
+	set @salidad1=(select count(numHabitacion) from habitaciones
+    inner join hoteles on hoteles.codHotel=habitaciones.codHotel
+    where hoteles.codHotel=habitaciones.codHotel and hoteles.nomHotel=@nombreHotel);
+    
+    set @salida2=(select count(numHabitacion) from habitaciones
+    inner join hoteles on hoteles.codHotel=habitaciones.codHotel
+   	where hoteles.nomHotel=@nombreHotel and habitaciones.preciodia < @precio and activa=0);
+GO
+
+/*Crear una función que dándole un dni o nie de un cliente como parámetro de entrada nos devuelva la
+suma total pagada por dicho cliente.*/
+ 
+GO
+create function dniCliente(@coddnionie char(9))
+returns int 
+BEGIN
+    return(select sum(precioestancia) from estancias where coddnionie=@coddnionie);
+END
+GO
+
+/*Hacer un Trigger en la tabla estancias que al insertar o modificar el 
+numero de ocupantes no supere la capacidad de la habitación.*/
+
+GO
+create trigger InsertaEsrancia on estancias for insert
+as
+	DECLARE @capac int;
+	DECLARE @ocup int;
+	set @capac=(select capacidad from habitaciones inner join inserted on
+	inserted.codHotel=habitaciones.codHotel and 
+	inserted.numHabitacion=habitaciones.numHabitacion);
+	if(@ocup>@capac)
+	BEGIN
+		print ' ERROR no se pudo insertar';
+	end
+GO
+
+
+/*Hacer un Trigger en la tabla estancias que al insertar calcule el precio de la estancia en función del número de 
+días de la estancia, precio día habitación, ocupantes y precio del régimen 
+(precioestancia=(númerodedias*(preciodiahabitacion+ocupantes*precioregimen))). */
+
+GO
+create trigger tr_inserEstancia2 on estancias instead of insert
+as
+DECLARE @precio int;
+DECLARE @precioHab int;
+DECLARE @precioest int;
+DECLARE @ocupantes int;
+DECLARE @Regimen int;
+begin
+	set @precio=(select datediff(day,fechaFin, fechaInicio) from inserted);
+	set @precioHab=(select preciodia from inserted inner join habitaciones on
+				  habitaciones.codHotel=inserted.codHotel
+				  where inserted.codHotel=habitaciones.codHotel and 
+				  inserted.numHabitacion=habitaciones.numHabitacion)
+	set @ocupantes=(select ocupantes from inserted)
+	set @Regimen=(select precio from inserted inner join regimenes on
+				  regimenes.codregimen=inserted.codregimen 
+				  where inserted.codregimen=regimenes.codregimen);
+	set @precioest=(@precio*(@precioHab*@Regimen+@ocupantes));
+END
+GO
+
+
+-- Hacer un Trigger que no permita eliminar ningún hotel.
+
+GO
+create trigger tr_eliminacionHotel on hoteles for delete 
+as
+	print ' ERROR no puedes eliminar el hotel'
+	rollback transaction
+GO

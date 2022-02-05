@@ -19,7 +19,7 @@ namespace vsAdo_CristoChacon
 
         public Connection()
         {
-            String strConn = "Data Source=localhost;Initial Catalog=bdHoteles;Integrated Security=true";
+            String strConn = "data source=DESKTOP-SILUGSV\\SQLEXPRESS; initial catalog = bdHoteles; integrated security = true";
             Connec = new SqlConnection(strConn);
         }
     }
