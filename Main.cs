@@ -51,5 +51,23 @@ namespace vsAdo_CristoChacon
             Borrar borrar = new Borrar();
             borrar.Show();
         }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            Update update = new Update();
+            update.Show();
+        }
+
+        private void relationButton_Click(object sender, EventArgs e)
+        {
+            Relation relation = new Relation();
+            relation.Show();
+        }
+
+        private void funButton_Click(object sender, EventArgs e)
+        {
+            Funpro funpro = new Funpro();
+            funpro.Show();
+        }
     }
 }

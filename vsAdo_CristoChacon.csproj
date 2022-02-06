@@ -53,6 +53,12 @@
       <DependentUpon>Borrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
+    <Compile Include="Funpro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funpro.Designer.cs">
+      <DependentUpon>Funpro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Insertar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relation.Designer.cs">
+      <DependentUpon>Relation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Borrar.resx">
       <DependentUpon>Borrar.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComboHab.resx">
       <DependentUpon>ComboHab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funpro.resx">
+      <DependentUpon>Funpro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insertar.resx">
       <DependentUpon>Insertar.cs</DependentUpon>
@@ -112,6 +133,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Relation.resx">
+      <DependentUpon>Relation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

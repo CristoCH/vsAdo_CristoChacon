@@ -14,3 +14,6 @@ E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.ComboHab.resource
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Main.resources
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Form1.resources
 E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Borrar.resources
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Update.resources
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Relation.resources
+E:\2º DAM\AED\vsAdo_CristoChacon\obj\Debug\vsAdo_CristoChacon.Funpro.resources

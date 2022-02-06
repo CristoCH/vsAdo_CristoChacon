@@ -137,11 +137,6 @@ namespace vsAdo_CristoChacon
                 dataGridHabitaciones.Columns[3].HeaderText = "preciodia";
                 dataGridHabitaciones.Columns[4].HeaderText = "activa";
 
-                DataColumn parentColumn = ds.Tables["hoteles"].Columns["codHotel"];
-                DataColumn childColumn = ds.Tables["habitaciones"].Columns["codHotel"];
-                DataRelation relHotHab = new DataRelation("Hotelhabitaciones",parentColumn,childColumn);
-                ds.Relations.Add(relHotHab);
-
                 countHab.Text = "Cantidad de habitaciones: " + ds.Tables["habitaciones"].Rows.Count.ToString();
 
 
