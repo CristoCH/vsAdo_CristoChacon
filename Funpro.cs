@@ -40,8 +40,8 @@ namespace vsAdo_CristoChacon
 
                 dataGridHabitaciones.Columns[0].HeaderText = "Num. Habitación";
                 dataGridHabitaciones.Columns[1].HeaderText = "Capacidad";
-                dataGridHabitaciones.Columns[1].HeaderText = "Precio/Día";
-                dataGridHabitaciones.Columns[2].HeaderText = "Activa";
+                dataGridHabitaciones.Columns[2].HeaderText = "Precio/Día";
+                dataGridHabitaciones.Columns[3].HeaderText = "Activa";
 
                 con.Connec.Close();
 
