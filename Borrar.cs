@@ -64,11 +64,11 @@ namespace vsAdo_CristoChacon
 
                 dataGridHabitaciones.DataSource = dt;
 
-                dataGridHabitaciones.Columns[0].HeaderText = "codHotel";
-                dataGridHabitaciones.Columns[1].HeaderText = "numHabitacion";
-                dataGridHabitaciones.Columns[2].HeaderText = "capacidad";
-                dataGridHabitaciones.Columns[3].HeaderText = "preciodia";
-                dataGridHabitaciones.Columns[4].HeaderText = "activa";
+                dataGridHabitaciones.Columns[0].HeaderText = "Código Hotel";
+                dataGridHabitaciones.Columns[1].HeaderText = "Num. Habitación";
+                dataGridHabitaciones.Columns[2].HeaderText = "Capacidad";
+                dataGridHabitaciones.Columns[3].HeaderText = "Precio/Día";
+                dataGridHabitaciones.Columns[4].HeaderText = "Activa";
 
 
                 con.Connec.Close();

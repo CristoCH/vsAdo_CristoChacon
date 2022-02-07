@@ -57,8 +57,8 @@ namespace vsAdo_CristoChacon
                 DataView dv_hoteles = new DataView(ds.Tables["hoteles"]);
                 dataGridHotel.DataSource = dv_hoteles;
 
-                dataGridHotel.Columns[0].HeaderText = "codHotel";
-                dataGridHotel.Columns[1].HeaderText = "nomHotel";
+                dataGridHotel.Columns[0].HeaderText = "Código Hotel";
+                dataGridHotel.Columns[1].HeaderText = "Num. Habitación";
 
                 countHotel.Text = "Cantidad de hoteles: " + ds.Tables["hoteles"].Rows.Count.ToString();
 
@@ -78,11 +78,11 @@ namespace vsAdo_CristoChacon
 
                 dataGridHabitaciones.Columns.Add(comboBoxColumn);
 
-                dataGridHabitaciones.Columns[0].HeaderText = "codHotel";
-                dataGridHabitaciones.Columns[1].HeaderText = "numHabitacion";
-                dataGridHabitaciones.Columns[2].HeaderText = "capacidad";
-                dataGridHabitaciones.Columns[3].HeaderText = "preciodia";
-                dataGridHabitaciones.Columns[4].HeaderText = "activa";
+                dataGridHabitaciones.Columns[0].HeaderText = "Código Hotel";
+                dataGridHabitaciones.Columns[1].HeaderText = "Num. Habitación";
+                dataGridHabitaciones.Columns[2].HeaderText = "Capacidad";
+                dataGridHabitaciones.Columns[3].HeaderText = "Precio/Díaa";
+                dataGridHabitaciones.Columns[4].HeaderText = "Activa";
 
                 DataColumn parentColumn = ds.Tables["hoteles"].Columns["codHotel"];
                 DataColumn childColumn = ds.Tables["habitaciones"].Columns["codHotel"];

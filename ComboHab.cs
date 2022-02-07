@@ -47,11 +47,11 @@ namespace vsAdo_CristoChacon
                 dv_habitaciones.RowFilter = "codHotel = '" + hotelComboBox.SelectedValue + "'";     /* filtramos el dataView con el value del hotel seleccionado, ese value será el codHotel */
                 dataGridHabitaciones.DataSource = dv_habitaciones;
 
-                dataGridHabitaciones.Columns[0].HeaderText = "codHotel";
-                dataGridHabitaciones.Columns[1].HeaderText = "numHabitacion";
-                dataGridHabitaciones.Columns[2].HeaderText = "capacidad";
-                dataGridHabitaciones.Columns[3].HeaderText = "preciodia";
-                dataGridHabitaciones.Columns[4].HeaderText = "activa";
+                dataGridHabitaciones.Columns[0].HeaderText = "Código Hotel";
+                dataGridHabitaciones.Columns[1].HeaderText = "Num. Habitación";
+                dataGridHabitaciones.Columns[2].HeaderText = "Capacidad";
+                dataGridHabitaciones.Columns[3].HeaderText = "Precio/Díaa";
+                dataGridHabitaciones.Columns[4].HeaderText = "Activa";
 
             }
             catch (Exception ex)

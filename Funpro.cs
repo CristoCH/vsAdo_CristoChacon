@@ -38,10 +38,10 @@ namespace vsAdo_CristoChacon
                 DataView dv_funpro = new DataView(ds.Tables["habitaciones"]);
                 dataGridHabitaciones.DataSource = dv_funpro;
 
-                dataGridHabitaciones.Columns[0].HeaderText = "numHabitacion";
-                dataGridHabitaciones.Columns[1].HeaderText = "capacidad";
-                dataGridHabitaciones.Columns[1].HeaderText = "preciodia";
-                dataGridHabitaciones.Columns[2].HeaderText = "activa";
+                dataGridHabitaciones.Columns[0].HeaderText = "Num. Habitación";
+                dataGridHabitaciones.Columns[1].HeaderText = "Capacidad";
+                dataGridHabitaciones.Columns[1].HeaderText = "Precio/Día";
+                dataGridHabitaciones.Columns[2].HeaderText = "Activa";
 
                 con.Connec.Close();
 

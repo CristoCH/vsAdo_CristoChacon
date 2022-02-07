@@ -117,8 +117,8 @@ namespace vsAdo_CristoChacon
                 DataView dv_hoteles = new DataView(ds.Tables["hoteles"]);
                 dataGridHotel.DataSource = dv_hoteles;
 
-                dataGridHotel.Columns[0].HeaderText = "codHotel";
-                dataGridHotel.Columns[1].HeaderText = "nomHotel";
+                dataGridHotel.Columns[0].HeaderText = "Código Hotel";
+                dataGridHotel.Columns[1].HeaderText = "Nombre Hotel";
 
                 countHotel.Text = "Cantidad de hoteles: " + ds.Tables["hoteles"].Rows.Count.ToString();
 
@@ -131,11 +131,11 @@ namespace vsAdo_CristoChacon
                 DataView dv_habitaciones = new DataView(ds.Tables["habitaciones"]);
                 dataGridHabitaciones.DataSource = dv_habitaciones;
 
-                dataGridHabitaciones.Columns[0].HeaderText = "codHotel";
-                dataGridHabitaciones.Columns[1].HeaderText = "numHabitacion";
-                dataGridHabitaciones.Columns[2].HeaderText = "capacidad";
-                dataGridHabitaciones.Columns[3].HeaderText = "preciodia";
-                dataGridHabitaciones.Columns[4].HeaderText = "activa";
+                dataGridHabitaciones.Columns[0].HeaderText = "Código Hotel";
+                dataGridHabitaciones.Columns[1].HeaderText = "Num. Habitación";
+                dataGridHabitaciones.Columns[2].HeaderText = "Capacidad";
+                dataGridHabitaciones.Columns[3].HeaderText = "Precio/Díaa";
+                dataGridHabitaciones.Columns[4].HeaderText = "Activa";
 
                 countHab.Text = "Cantidad de habitaciones: " + ds.Tables["habitaciones"].Rows.Count.ToString();
 
@@ -149,16 +149,16 @@ namespace vsAdo_CristoChacon
                 dataGridEstancias.DataSource = dv_estancias;
 
 
-                dataGridEstancias.Columns[0].HeaderText = "codestancia";
-                dataGridEstancias.Columns[1].HeaderText = "coddnionie";
-                dataGridEstancias.Columns[2].HeaderText = "codHotel";
-                dataGridEstancias.Columns[3].HeaderText = "numHabitaciones";
-                dataGridEstancias.Columns[4].HeaderText = "fechaInicio";
-                dataGridEstancias.Columns[5].HeaderText = "fechaFin";
-                dataGridEstancias.Columns[6].HeaderText = "codregimen";
-                dataGridEstancias.Columns[7].HeaderText = "ocupantes";
-                dataGridEstancias.Columns[8].HeaderText = "precioestancia";
-                dataGridEstancias.Columns[9].HeaderText = "pagado";
+                dataGridEstancias.Columns[0].HeaderText = "Código Estancia";
+                dataGridEstancias.Columns[1].HeaderText = "DNI/NIE";
+                dataGridEstancias.Columns[2].HeaderText = "Código Hotel";
+                dataGridEstancias.Columns[3].HeaderText = "Num. Habitación";
+                dataGridEstancias.Columns[4].HeaderText = "FechaInicio";
+                dataGridEstancias.Columns[5].HeaderText = "FechaFin";
+                dataGridEstancias.Columns[6].HeaderText = "Cod. Regimen";
+                dataGridEstancias.Columns[7].HeaderText = "Ocupantes";
+                dataGridEstancias.Columns[8].HeaderText = "Precio/estancia";
+                dataGridEstancias.Columns[9].HeaderText = "Pagado";
 
                 countEstancias.Text = "Cantidad de estancias: " + ds.Tables["estancias"].Rows.Count.ToString();
 
@@ -170,9 +170,9 @@ namespace vsAdo_CristoChacon
                 DataView dv_clientes = new DataView(ds.Tables["clientes"]);
                 dataGridClientes.DataSource = dv_clientes;
 
-                dataGridClientes.Columns[0].HeaderText = "coddnionie";
-                dataGridClientes.Columns[1].HeaderText = "nombre";
-                dataGridClientes.Columns[2].HeaderText = "nacionalidad";
+                dataGridClientes.Columns[0].HeaderText = "DNI/NIE";
+                dataGridClientes.Columns[1].HeaderText = "Nombre";
+                dataGridClientes.Columns[2].HeaderText = "Nacionalidad";
 
                 countClient.Text = "Cantidad de clientes: " + ds.Tables["clientes"].Rows.Count.ToString();
 
@@ -186,10 +186,10 @@ namespace vsAdo_CristoChacon
                 DataView dv_regimenes = new DataView(ds.Tables["regimenes"]);
                 dataGridRegimenes.DataSource = dv_regimenes;
 
-                dataGridRegimenes.Columns[0].HeaderText = "codregimen";
-                dataGridRegimenes.Columns[1].HeaderText = "codHotel";
-                dataGridRegimenes.Columns[2].HeaderText = "tipo";
-                dataGridRegimenes.Columns[3].HeaderText = "precio";
+                dataGridRegimenes.Columns[0].HeaderText = "Cod. Regimen";
+                dataGridRegimenes.Columns[1].HeaderText = "Código Hotel";
+                dataGridRegimenes.Columns[2].HeaderText = "Tipo";
+                dataGridRegimenes.Columns[3].HeaderText = "Precio";
 
                 countRegimen.Text = "Cantidad de regimenes: " + ds.Tables["regimenes"].Rows.Count.ToString();
 
